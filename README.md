@@ -1,4 +1,4 @@
-## 👍 공통 사항
+# 👍 공통 사항
 
 - 단위 테스트 작성(service 메소드 별로) : Kotest 사용
 - 다른 사람이 알아보기 쉽도록 주석처리해야 합니다. (controller, service 메서드마다)
@@ -12,7 +12,7 @@
  
 <br>
 
-## 🛠️ 기술 스택
+# 🛠️ 기술 스택
 
 - #### Language, Framework, Library
   ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=Kotlin&logoColor=FFFFFF)
@@ -74,8 +74,8 @@
   - 테스트 코드 작성과 함께 API 문서가 자동으로 생성되어, 실제 코드와 문서의 동기화 문제가 발생하지 않음
   - 테스트 시에 문서를 검증할 수 있어 신뢰성을 높임
 
-### 🙏 협업 툴
-- ![Slack](https://img.shields.io/badge/Slack-4A154B.svg?style=flat-square&logo=slack&logoColor=white)
+- #### 🙏 협업 툴
+  ![Slack](https://img.shields.io/badge/Slack-4A154B.svg?style=flat-square&logo=slack&logoColor=white)
   ![Notion](https://img.shields.io/badge/Notion-000000.svg?style=flat-square&logo=notion&logoColor=white)
 
 <br>
