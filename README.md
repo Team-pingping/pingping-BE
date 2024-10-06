@@ -37,7 +37,7 @@
   ![Jacoco](https://img.shields.io/badge/Jacoco-CC6699?style=flat-square&logo=Jacoco&logoColor=white)
   ![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=SonarQube&logoColor=white)
   ![Trivy](https://img.shields.io/badge/Trivy-0091E2?style=flat-square&logo=Trivy&logoColor=white)
-  ![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=ArgoCD&logoColor=white)-
+  ![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=flat-square&logo=ArgoCD&logoColor=white)
   ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white)
   - Jenkins를 사용한 CI/CD 파이프라인은 자동화된 테스트, 빌드, 배포를 통해 개발 프로세스를 효율적으로 관리
   - Jacoco, SonarQube, TrivyScan은 각각 코드 커버리지, 코드 품질, 보안 취약점을 점검하여 안정적인 코드 배포를 지원
@@ -52,6 +52,7 @@
   ![Kibana](https://img.shields.io/badge/Kibana-005571?style=flat-square&logo=Kibana&logoColor=white)
   ![Filebeat](https://img.shields.io/badge/Filebeat-005571?style=flat-square&logo=Filebeat&logoColor=white)
   ![Vault](https://img.shields.io/badge/Vault-000000?style=flat-square&logo=Vault&logoColor=white)
+  ![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat-square&logo=Apache%20Kafka&logoColor=white)
   - Kubernetes는 컨테이너화된 애플리케이션의 배포와 확장을 자동화하여, 대규모 인프라 관리가 용이
   - Grafana, Prometheus는 모니터링과 알림 시스템을 구축해 시스템 성능 및 상태를 실시간으로 추적하고 대응
   - Elasticsearch, Logstash, Kibana, Filebeat(ELK 스택)는 로그 수집, 분석, 시각화를 통해 애플리케이션 상태 및 문제를 쉽게 파악하고 대응
