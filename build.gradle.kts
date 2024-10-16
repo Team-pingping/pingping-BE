@@ -1,22 +1,30 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     id("org.springframework.boot") version "3.3.4"
     id("io.spring.dependency-management") version "1.1.6"
     id("org.asciidoctor.jvm.convert") version "3.3.2"
 
-    kotlin("kapt") version "1.9.25"
-    kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version "1.9.25"
-    kotlin("plugin.jpa") version "1.9.25"
+    kotlin("kapt") version "2.0.21"
+    kotlin("jvm") version "2.0.21"
+    kotlin("plugin.spring") version "2.0.21"
+    kotlin("plugin.jpa") version "2.0.21"
 }
+allprojects {
+    group = "com.pingping"
+    version = "0.0.1-SNAPSHOT"
 
-group = "com.pingping"
-version = "0.0.1-SNAPSHOT"
+    repositories {
+        mavenCentral()
+    }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+    tasks.withType<BootJar> {
+        enabled=false
     }
 }
+group = "com.pingping"
+version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -26,61 +34,7 @@ extra["snippetsDir"] = file("build/generated-snippets")
 extra["springCloudVersion"] = "2023.0.3"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
-    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
-    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0")
 
-    // logger
-    implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
-
-    // Spring Cloud
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
-
-    // Jackson & Kotlin
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-
-    // QueryDSL
-    // 필요 없으면 삭제
-    implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
-    kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
-    kapt("jakarta.annotation:jakarta.annotation-api")
-    kapt("jakarta.persistence:jakarta.persistence-api")
-
-    // MySQL
-    runtimeOnly("com.mysql:mysql-connector-j")
-
-    // MongoDB
-    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-
-    // Redis
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
-
-    // JWT
-    implementation("io.jsonwebtoken:jjwt-api:0.12.5")
-    implementation("io.jsonwebtoken:jjwt-impl:0.12.5")
-    implementation("io.jsonwebtoken:jjwt-jackson:0.12.5")
-
-    // Testing
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.springframework.kafka:spring-kafka-test")
-    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
-    testImplementation("org.springframework.security:spring-security-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    // Kotest
-    testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
-    testImplementation("io.kotest:kotest-assertions-core:5.9.1")
-    testImplementation("io.kotest:kotest-framework-engine:5.9.1")
-
-    // MockK
-    testImplementation("io.mockk:mockk:1.13.12")
-    testImplementation("io.mockk:mockk-agent-jvm:1.13.12")
 }
 
 allOpen {
@@ -112,4 +66,67 @@ tasks.test {
 tasks.asciidoctor {
     inputs.dir(project.extra["snippetsDir"]!!)
     dependsOn(tasks.test)
+}
+
+subprojects {
+    apply(plugin = "kotlin")
+    apply(plugin = "kotlin-kapt")
+    apply(plugin = "kotlin-spring")
+    apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+    apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
+    apply(plugin = "org.springframework.boot")
+    apply(plugin = "io.spring.dependency-management")
+    apply(plugin = "java-test-fixtures")
+
+
+
+    tasks.withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs += "-Xjsr305=strict"
+            jvmTarget = "17"
+        }
+    }
+
+    kapt {
+        keepJavacAnnotationProcessors = true
+    }
+
+    dependencies {
+        // kotlin
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+        //spring
+        implementation("org.springframework.boot:spring-boot-starter-web")
+
+        //test
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+        // Testing
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+        testImplementation("org.springframework.kafka:spring-kafka-test")
+        testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+        testImplementation("org.springframework.security:spring-security-test")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+        // Kotest
+        testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
+        testImplementation("io.kotest:kotest-assertions-core:5.9.1")
+        testImplementation("io.kotest:kotest-framework-engine:5.9.1")
+
+        // MockK
+        testImplementation("io.mockk:mockk:1.13.12")
+        testImplementation("io.mockk:mockk-agent-jvm:1.13.12")
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+
 }
