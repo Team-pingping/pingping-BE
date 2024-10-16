@@ -25,7 +25,7 @@ class GlobalExceptionHandler {
 
     // 예외 발생시 로그 기록 및 응답 처리
     private fun logAndGenerateErrorResponse(e: Exception, status: HttpStatus, message: String? = null): ResponseEntity<CommonResponse<Nothing?>> {
-        log.error("${e.javaClass.simpleName} occurred: ${e.message}", e)
+        log.error(e) { "${e.javaClass.simpleName} occurred: ${e.message}" }
         return generateErrorResponse(status, message ?: e.message)
     }
 
