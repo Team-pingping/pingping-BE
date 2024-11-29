@@ -1,0 +1,13 @@
+= Moping-Backend API Docs
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+include::Event.adoc[]
+include::Auth.adoc[]
+include::NonMember.adoc[]
+include::Place.adoc[]
+include::Pings.adoc[]

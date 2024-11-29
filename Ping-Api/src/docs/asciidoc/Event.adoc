@@ -1,0 +1,6 @@
+[[Events-API]]
+== Events API
+
+[[Post-Event]]
+=== 이벤트 생성
+operation::EventControllerTest/createEvent[snippets='http-request,request-fields,http-response,response-fields']

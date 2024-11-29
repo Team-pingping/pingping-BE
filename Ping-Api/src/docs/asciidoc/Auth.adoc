@@ -1,0 +1,6 @@
+[[Auth-API]]
+== Auth API
+
+[[Post-ReissueToken]]
+=== 토큰 재발급
+operation::AuthControllerTest/reissueToken[snippets='http-request,http-response,request-headers,response-fields']

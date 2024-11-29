@@ -1,0 +1,46 @@
+[[Pings-API]]
+== Pings API
+
+[[Post-IsCorrectBookmarkUrl]]
+=== 유효한 북마크 링크
+operation::PingControllerTest/isCorrectBookmarkUrl[snippets='http-request,http-response,request-fields,request-body']
+
+[[List-IsCorrectStoreUrl]]
+=== 유효한 가게 링크
+operation::PingControllerTest/isCorrectStoreUrl[snippets='http-request,http-response,request-fields,request-body']
+
+[[Post-NonMemberPings]]
+=== 비회원 핑 생성
+operation::PingControllerTest/createNonMemberPings[snippets='http-request,request-fields,http-response']
+
+[[Post-SaveMemberPing]]
+=== 회원 핑 저장
+operation::PingControllerTest/saveMemberPing[snippets='http-request,http-response,request-headers,request-fields']
+
+[[Post-RecommendPings]]
+=== 추천 핑 저장
+operation::PingControllerTest/saveRecommendPings[snippets='http-request,http-response,request-fields,response-fields']
+
+[[Get-NonMemberPings]]
+=== 전체 핑 불러오기
+operation::PingControllerTest/getAllNonMemberPings[snippets='http-request,http-response,query-parameters,response-body,response-fields']
+
+[[Get-NonMemberPing]]
+=== 개별 핑 불러오기
+operation::PingControllerTest/getNonMemberPing[snippets='http-request,http-response,response-fields']
+
+[[Get-RecommendPings]]
+=== 추천 핑 불러오기
+operation::PingControllerTest/getRecommendPings[snippets='http-request,http-response,query-parameters,response-fields']
+
+[[Put-UpdateNonMemberPings]]
+=== 비회원 핑 업데이트
+operation::PingControllerTest/updateNonMemberPings[snippets='http-request,request-fields,http-response']
+
+[[Get-RefreshAllNonMemberPings]]
+=== 비회원 모든 핑 갱신
+operation::PingControllerTest/refreshAllNonMemberPings[snippets='http-request,http-response,query-parameters,response-fields']
+
+[[Delete-MemberPing]]
+=== 회원 핑 삭제
+operation::PingControllerTest/deletePing[snippets='http-request,http-response,request-headers,request-fields']

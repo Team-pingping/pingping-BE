@@ -1,0 +1,14 @@
+[[NonMembers-API]]
+== NonMembers API
+
+[[Post-NonMemberLogin]]
+=== 비회원 로그인
+operation::NonMemberControllerTest/loginNonMember[snippets='http-request,request-fields,http-response']
+
+[[Post-NonMemberLoginWithToken]]
+=== 비회원 로그인 (토큰 발급)
+operation::NonMemberControllerTest/loginNonMemberWithToken[snippets='http-request,request-fields,http-response,response-fields']
+
+[[Get-NonMemberProfile]]
+=== 비회원 프로필 불러오기
+operation::NonMemberControllerTest/getNonMemberProfile[snippets='http-request,http-response,response-fields']

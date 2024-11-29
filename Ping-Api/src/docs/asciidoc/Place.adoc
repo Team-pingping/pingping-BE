@@ -1,0 +1,14 @@
+[[Places-API]]
+== Places API
+
+[[Search-Place]]
+=== 장소 검색
+operation::PlaceControllerTest/searchPlace[snippets='http-request,query-parameters,http-response,response-body,response-fields']
+
+[[Geocode-Place]]
+=== 주소로 좌표 검색
+operation::PlaceControllerTest/getGeocodePlace[snippets='http-request,query-parameters,http-response,response-body,response-fields']
+
+[[Reverse-Geocode-Place]]
+=== 도로명 주소 조회
+operation::PlaceControllerTest/getReverseGeocode[snippets='http-request,query-parameters,http-response,response-body,response-fields']
